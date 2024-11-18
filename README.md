@@ -2,6 +2,7 @@
 
 ## Mensaje por cambio indicado en lab3
 ## de Gerardo Ureta
+## Tarea corregida
 
 Este proyecto cuenta con los siguientes endpoints por defecto :
 
