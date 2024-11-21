@@ -3,14 +3,14 @@ function operar(operacion: string = "", a: number, b: number) {
         return suma(a, b);
     } else if (operacion === 'resta') {
         return restar(a, b);
-    } else if (operacion === 'multiplicacion') {
-        return multiplicacion(a, b);
-    } else if (operacion === 'division') {
-        return division(a, b);
+    } else if (operacion === 'multiplicar') {
+        return multiplicar(a, b);
+    } else if (operacion === 'dividir') {
+        return dividir(a, b);
     } else if (operacion === 'potencia') {
         return potencia(a, b);
     } else if (operacion === 'factorial') {
-        return factorial(a);
+        return factorial(a, b);
     }
 }
 
@@ -32,15 +32,16 @@ function restar(a: number, b: number) {
 
         throw new Error("No se puede restar indefinidos");
     }
+
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
     }
     return a - b;
 }
 
-function multiplicacion(a: number, b: number) { //a = 1 , b=2
-
+function multiplicar(a: number, b: number) {
     if (a === undefined || b === undefined) {
+
         throw new Error("No se puede multiplicar indefinidos");
     }
 
@@ -51,9 +52,9 @@ function multiplicacion(a: number, b: number) { //a = 1 , b=2
     return a * b;
 }
 
-function division(a: number, b: number) { //a = 1 , b=2
-
+function dividir(a: number, b: number) {
     if (a === undefined || b === undefined) {
+
         throw new Error("No se puede dividir indefinidos");
     }
 
@@ -64,38 +65,40 @@ function division(a: number, b: number) { //a = 1 , b=2
     return a / b;
 }
 
-function potencia(a: number, b: number) { //a = 1 , b=2
-
+function potencia(a: number, b: number) {
     if (a === undefined || b === undefined) {
-        throw new Error("No se puede elevar a potencia numeros indefinidos");
+
+        throw new Error("No se puede elevar a potencia indefinidos");
     }
 
     if (typeof a !== 'number' || typeof b !== 'number') {
         return NaN;
     }
 
-    return a**b;
+    return a ** b;
 }
 
-function factorial(a: number) { //a = 1
-
+function factorial(a: number, b: number) {
     if (a === undefined) {
-        throw new Error("No se puede ejecutar factorial numero indefinido");
+
+        throw new Error("No se puede calcular el factorial de indefinidos");
     }
 
     if (typeof a !== 'number') {
         return NaN;
     }
-    
-    if (a === 0 || a === 1) {
+
+    if (a === 1 || a === 0) {
         return 1;
     }
 
-    let nfac = 1;
+    let nfactor=1;
+
     for (let i = 2; i <= a; i++) {
-        nfac = nfac * i;
+        nfactor=nfactor*i;
     }
-    return nfac;
+    
+    return nfactor;
 }
 
-export { suma, operar, restar, multiplicacion, division, potencia, factorial };
+export { suma, operar, restar, multiplicar, dividir, potencia, factorial };
