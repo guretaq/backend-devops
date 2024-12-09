@@ -32,5 +32,12 @@ pipeline {
                 }
             }
         }
+        stage("delivery - subida a nexus"){
+            steps{
+                sh 'sudo docker build -t backend-devops .'
+                sh 'sudo docker tab backend-devops:latest localhost:8082/backend-devops:latest'
+                sh 'sudo docker push localhost:8082/backend-devops:latest'
+            }
+        }
     }
 }
