@@ -64,7 +64,7 @@ pipeline {
             }
         }
         stage("delivery - subida a nexus"){
-            steps{8083
+            steps{
               script {
                 docker.withRegistry("http://localhost:8082", "registry"){
                     sh 'docker build -t backend-devops .'
