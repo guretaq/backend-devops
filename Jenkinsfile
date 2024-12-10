@@ -6,7 +6,7 @@ pipeline {
     }
     
     stages{
-        stage("build - instalación de dependiencias"){
+        stage("build"){
             agent {
                 docker {
                     label 'contenedores'
@@ -52,7 +52,7 @@ pipeline {
                 stage("Quality assurance - quality gate"){
                     steps{
                         script{
-                            timeout(time: 2, unit: 'MINUTES') {
+                            timeout(time: 1, unit: 'MINUTES') {
                                 def qg = waitForQualityGate()
                                 if (qg.status != 'OK') {
                                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
